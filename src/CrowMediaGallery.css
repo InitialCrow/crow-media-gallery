@@ -1,0 +1,67 @@
+
+/* welecome to css of crowMediaGallery */
+
+
+.crow-media-gallery .audio{
+  position: absolute;
+  top: 55%;
+  left: 38%;
+ 
+}
+
+.crow-media-gallery .crow-media-gallery-pool-list{
+  text-align: center;
+  padding : 0;
+
+}
+.crow-media-gallery .crow-media-gallery-pool-list .pool-item{
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.crow-media-gallery .crow-gallery-select-btn {
+	transition: all 0.2s ;
+	position: absolute;
+	z-index: 32;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	opacity: 0.5;
+	width: 25px;
+	height: 25px;
+	background-color: blue;
+	border-radius: 100%; 
+}
+
+.crow-gallery-select-btn .check-symbol {
+	color: white;
+	font-size: 1.8em;
+	line-height: 0.95;
+}
+
+.crow-media-gallery .crow-gallery-check-btn {
+	transition: all 0.2s ;
+	position: absolute;
+	z-index: 32;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	opacity: 0.5;
+	width: 25px;
+	height: 25px;
+	background-color: grey;
+	border-radius: 100%; 
+}
+.crow-gallery-check-btn .check-symbol {
+	color: white;
+	font-size: 1.8em;
+	line-height: 0.95;
+}
+.crow-media-gallery .crow-gallery-check-btn:hover, .crow-media-gallery .crow-gallery-check-btn:focus {
+	opacity: 1;
+}
+.crow-media-gallery .crow-gallery-select-btn:hover, .crow-media-gallery .crow-gallery-select-btn:focus {
+	opacity: 1;
+}

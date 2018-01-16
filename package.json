@@ -1,0 +1,51 @@
+{
+  "name": "crow-media-gallery",
+  "version": "0.1.0",
+  "description": "Media gallery react component work with crow-ligthbox-reader to show selectable gallery of media with lightbox render on click audio video and image  ...",
+  "main": "./lib/CrowMediaGallery.min.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "comp": " rm -r -f ./lib; mkdir -p ./lib ; cp -f ./src/CrowMediaGallery.css ./lib/  ; npx babel  ./src/CrowMediaGallery.js -o ./lib/CrowMediaGallery.js ; minify ./lib ; rm -f ./lib/CrowMediaGallery.css; mv ./lib/CrowMediaGallery.min.css ./lib/CrowMediaGallery.css  "
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "minifier": "^0.8.1",
+    "npx": "^9.7.1"
+  },
+  "dependencies": {
+    "crow-lightbox-reader": "^0.1.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InitialCrow/crow-media-gallery.git"
+  },
+  "keywords": [
+    "react",
+    "gallery",
+    "media",
+    "lightbox",
+    "video",
+    "image",
+    "audio"
+  ],
+  "author": "InitialCrow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InitialCrow/crow-media-gallery/issues"
+  },
+  "homepage": "https://github.com/InitialCrow/crow-media-gallery#readme"
+}

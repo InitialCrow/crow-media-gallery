@@ -157,6 +157,7 @@ class CrowMediaGallery extends Component {
   }
   renderLightBoxReader(){ // render lightBox
     if(this.state.showLightBox !== false){
+      this.lightboxSettings.showLightBox = this.state.showLightBox
       return(
         <CrowLightBoxReader closeCallBack={()=>{this.setState({showLightBox : false, showGallery : true})}} isRead={this.itemIndexClicked} items={this.state.poolItems} settings={this.lightboxSettings} />
       )

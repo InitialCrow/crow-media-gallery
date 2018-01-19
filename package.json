@@ -1,6 +1,6 @@
 {
   "name": "crow-media-gallery",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Media gallery react component work with crow-ligthbox-reader to show selectable gallery of media with lightbox render on click audio video and image  ...",
   "main": "./lib/CrowMediaGallery.min.js",
   "scripts": {

@@ -4,7 +4,7 @@ import './index.css';
 import CrowMediaGallery from './CrowMediaGallery.js';
 import registerServiceWorker from './registerServiceWorker';
 
-const settings = {
+const gallerySettings = {
 	showSelect : true,
 	debug : true,
 }
@@ -66,5 +66,5 @@ const items = [
 ]
 
 
-ReactDOM.render(<CrowMediaGallery  settings={settings} items={items} />, document.getElementById('root'));
+ReactDOM.render(<CrowMediaGallery  gallerySettings={gallerySettings} items={items} />, document.getElementById('root'));
 registerServiceWorker();

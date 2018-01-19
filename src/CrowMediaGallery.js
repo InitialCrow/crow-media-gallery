@@ -13,10 +13,13 @@ class CrowMediaGallery extends Component {
     this.onCustomClick = props.onCustomClick || false // this is param for custom user click on item function
     this.itemIndexClicked = null // by default itemCliked is null when we click on item we put goo index to show in lightbox
 
-    // pass object settings to change crow-media-gallery configuration
-    this.settings = props.settings || {}
-    this.showSelect = this.settings.showSelect || true // show select function and select marker on item
-    this.debug = this.settings.debug || false // enable debug mode to show console msg
+    // pass object gallerySettings to change crow-media-gallery configuration
+    this.gallerySettings = props.gallerySettings || {}
+    this.showSelect = this.gallerySettings.showSelect || true // show select function and select marker on item
+    this.debug = this.gallerySettings.debug || false // enable debug mode to show console msg
+
+    // pass object lightboxSettings to change crow-lightbox-reader configuration
+    this.lightboxSettings = props.lightboxSettings || {}
 
     //construct props
     this.nodes={
@@ -153,17 +156,9 @@ class CrowMediaGallery extends Component {
     }
   }
   renderLightBoxReader(){ // render lightBox
-    const settings = {
-      showPool : true,
-      showBtn : true,
-      showDesc : true,
-      showLightBox : this.state.showLightBox,
-      nodeToHide : false,
-      debug : false,
-    }
     if(this.state.showLightBox !== false){
       return(
-        <CrowLightBoxReader closeCallBack={()=>{this.setState({showLightBox : false, showGallery : true})}} isRead={this.itemIndexClicked} items={this.state.poolItems} settings={settings} />
+        <CrowLightBoxReader closeCallBack={()=>{this.setState({showLightBox : false, showGallery : true})}} isRead={this.itemIndexClicked} items={this.state.poolItems} settings={this.lightboxSettings} />
       )
     }
     

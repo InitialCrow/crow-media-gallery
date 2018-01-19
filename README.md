@@ -1,6 +1,6 @@
 ﻿
 # CrowMediaGallery 
-v0.1.1
+v0.1.2
 
 
 Hi !! here we have react component I made, its a media selectable gallery with options and lightbox render if you want to get just the lightbox-reader you ga go to the [github_project](https://github.com/InitialCrow/crow-lightbox-reader).
@@ -103,10 +103,18 @@ if you want change MediaGallery settings you can do like this
         import ReactDOM from 'react-dom';
         import CrowMediaGallery from 'crow-media-gallery';
     
-        const settings = {
+        const gallerySettings = {
 	    	showSelect : true, // if you want selectable
 	    	debug : false, // if youo want to show debug message
 	    }
+        const lightboxSettings = {
+            showPool : true,
+            showBtn : true,
+            showDesc : true,
+            showLightBox : false // state toggle true/false,
+            nodeToHide : false,
+            debug : false,
+        }
     
     const items = [ 
     	{
@@ -165,7 +173,7 @@ if you want change MediaGallery settings you can do like this
     ]
    
 
-       ReactDOM.render(<CrowMediaGallery onSelect={(item)=>{myCallBack(item)// callback with item selected on param this cancel default select}} settings={settings} items={items} onCustomClick={(item,index)=>{myCallBack(item,index) // callback with item and index clicked on param this cancel default action on click item}} />, document.getElementById('root'));
+       ReactDOM.render(<CrowMediaGallery onSelect={(item)=>{myCallBack(item)// callback with item selected on param this cancel default select}} gallerySettings={gallerySettings} lightboxSettings={lightboxSettings} items={items} onCustomClick={(item,index)=>{myCallBack(item,index) // callback with item and index clicked on param this cancel default action on click item}} />, document.getElementById('root'));
 
 here you have all settings you can change now
 

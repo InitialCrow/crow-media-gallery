@@ -1,6 +1,6 @@
 ﻿
 # CrowMediaGallery 
-v0.1.0
+v0.1.1
 
 
 Hi !! here we have react component I made, its a media selectable gallery with options and lightbox render if you want to get just the lightbox-reader you ga go to the [github_project](https://github.com/InitialCrow/crow-lightbox-reader).

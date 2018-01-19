@@ -6,15 +6,17 @@ import CrowLightBoxReader from 'crow-lightbox-reader';
 class CrowMediaGallery extends Component {
   constructor(props){
     super(props)
+   
 
-    this.poolItems = props.items || [] // this is all items audio image or video pool
+    //this.state.poolItems = props.items || [] // this is all items audio image or video pool
     this.onSelect = props.onSelect || false // this is param for custom user select on item function
     this.onCustomClick = props.onCustomClick || false // this is param for custom user click on item function
     this.itemIndexClicked = null // by default itemCliked is null when we click on item we put goo index to show in lightbox
 
     // pass object settings to change crow-media-gallery configuration
-    this.showSelect = props.settings.showSelect || true // show select function and select marker on item
-    this.debug = props.settings.debug || false // enable debug mode to show console msg
+    this.settings = props.settings || {}
+    this.showSelect = this.settings.showSelect || true // show select function and select marker on item
+    this.debug = this.settings.debug || false // enable debug mode to show console msg
 
     //construct props
     this.nodes={
@@ -23,7 +25,13 @@ class CrowMediaGallery extends Component {
     this.state={
       selectItem : false,
       showLightBox  : false,
-      showGalery : true,
+      showGallery : true,
+      poolItems : props.items || [] // this is all items audio image or video pool
+    }
+  }
+  componentWillReceiveProps(props){
+    if(this.state.poolItems !=props.items ){
+      this.setState({poolItems :props.items})
     }
   }
   console(msg=""){
@@ -67,9 +75,9 @@ class CrowMediaGallery extends Component {
     }
   }
   renderPoolItemsThumb(){ // render items
-    if(this.poolItems != ""){
+    if(this.state.poolItems != ""){
       let poolItems = []
-      this.poolItems.map((item,i)=>{
+      this.state.poolItems.map((item,i)=>{
         if(this.renderVideoItemThumb(item,i) !== undefined){
 
           poolItems.push(this.renderVideoItemThumb(item,i))
@@ -99,7 +107,7 @@ class CrowMediaGallery extends Component {
       return
     }
     this.itemIndexClicked = i
-    this.setState({showLightBox : true, showGalery : false})
+    this.setState({showLightBox : true, showGallery : false})
   }
   renderVideoItemThumb(item="",i){ // render video item for type "video"
 
@@ -136,7 +144,7 @@ class CrowMediaGallery extends Component {
     }
   }
   renderPoolListThumb(){ // render pool list 
-    if(this.showPool !== false){
+    if(this.state.showGallery !== false){
       return(
         <ul key="r1" className="crow-media-gallery-pool-list">
           {this.renderPoolItemsThumb()}
@@ -150,11 +158,12 @@ class CrowMediaGallery extends Component {
       showBtn : true,
       showDesc : true,
       showLightBox : this.state.showLightBox,
+      nodeToHide : false,
       debug : false,
     }
     if(this.state.showLightBox !== false){
       return(
-        <CrowLightBoxReader closeCallBack={()=>{this.setState({showLightBox : false, showGalery : true})}} isRead={this.itemIndexClicked} items={this.poolItems} settings={settings} />
+        <CrowLightBoxReader closeCallBack={()=>{this.setState({showLightBox : false, showGallery : true})}} isRead={this.itemIndexClicked} items={this.state.poolItems} settings={settings} />
       )
     }
     
@@ -162,7 +171,7 @@ class CrowMediaGallery extends Component {
   showRenderer(){ // render all render
     let render = []
     render.push(this.renderPoolListThumb())
-    if(this.state.showGalery!== false){
+    if(this.state.showGallery!== false){
       return(
         <div>
           <div className="crow-media-gallery">
@@ -187,5 +196,4 @@ class CrowMediaGallery extends Component {
     )
   }
 }
-
 export default CrowMediaGallery;
